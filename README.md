@@ -1,5 +1,7 @@
 # Google Cloud Logging
 This plugin will log job build information for Jenkins jobs to either BigQuery or Datastore. 
+A modification of this https://github.com/homedepot/GoogleCloudLoggingPlugin to enable a variable to be set to turn on a job
+An extra field in the BigQuery database for the channel associated with the tests as well.
 
 ## Setup
 1. Install Google Cloud Logging via Upload Plugin in Jenkins Plugin Manager.
@@ -31,6 +33,7 @@ This plugin will log job build information for Jenkins jobs to either BigQuery o
 | upstream_build_number		| STRING	| NULLABLE ||
 | upstream_project	| STRING	| NULLABLE ||
 | pipeline	| BOOLEAN	| NULLABLE ||
+| environment	| STRING	| NULLABLE	||
 
 ### Table Structure for Datastore
 | Column Name| Note |
