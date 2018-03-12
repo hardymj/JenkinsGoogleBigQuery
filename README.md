@@ -6,9 +6,10 @@ An extra field in the BigQuery database for the channel associated with the test
 ## Setup
 1. Install Google Cloud Logging via Upload Plugin in Jenkins Plugin Manager.
 2. Setup your application default credentials on your Jenkins box. Refer to [Google's Documentation](https://developers.google.com/identity/protocols/application-default-credentials) for more information and help doing this.
-2. In Manage Jenkins -> Configure System -> Google Cloud Logging:
+3. In Manage Jenkins -> Configure System -> Google Cloud Logging:
  - BigQuery: Enable BigQuery Logging and set the Project, Dataset, and Table you want Jenkins to write out to. The default Google credentials on the Jenkins server will be used to write to BigQuery.
  - Datastore: Enable Datastore Logging. The default project and Google credentials on your Jenkins box will be used to log out to the kind JenkinsBuild within Datastore. The kind cannot be changed since it is tied to the class name within the entity.
+4.	Within the Jenkins project create a Boolean parameter called BIG_QUERY. Set the default value to true for the plugin to send the data to BigQuery
 
 ### Table Structure for BigQuery
 
