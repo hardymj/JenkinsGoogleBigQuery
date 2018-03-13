@@ -27,7 +27,8 @@ public class GoogleCloudLoggingConstants {
     public static final String JOB_NAME = "${JOB_NAME}";
     public static final String BUILD_NUMBER = "${BUILD_NUMBER}";
     public static final String BUILD_URL = "${BUILD_URL}";
-    public static final String BUILD_TS = convertBuildStamp("${BUILD_TIMESTAMP}");
+    public static final String BUILD_TS = "${BUILD_TIMESTAMP_TS}";
+    //public static final String BUILD_TS = convertBuildStamp("${BUILD_TIMESTAMP}");
     public static final String JENKINS_URL = "${JENKINS_URL}";
     public static final String EXECUTOR_NUMBER = "${EXECUTOR_NUMBER}";
     public static final String WORKSPACE = "${WORKSPACE}";
