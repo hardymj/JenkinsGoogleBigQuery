@@ -16,6 +16,10 @@ limitations under the License.
 
 package org.jenkinsci.plugins.googlecloudlogging.constants;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 public class GoogleCloudLoggingConstants {
 
     /** Tags from the Jenkins environment */
@@ -23,13 +27,23 @@ public class GoogleCloudLoggingConstants {
     public static final String JOB_NAME = "${JOB_NAME}";
     public static final String BUILD_NUMBER = "${BUILD_NUMBER}";
     public static final String BUILD_URL = "${BUILD_URL}";
-    public static final String BUILD_TS = "${BUILD_TIMESTAMP}";
+    public static final String BUILD_TS = convertBuildStamp("${BUILD_TIMESTAMP}");
     public static final String JENKINS_URL = "${JENKINS_URL}";
     public static final String EXECUTOR_NUMBER = "${EXECUTOR_NUMBER}";
     public static final String WORKSPACE = "${WORKSPACE}";
     public static final String GIT_COMMIT = "${GIT_COMMIT}";
     public static final String GIT_URL = "${GIT_URL}";
     public static final String GIT_BRANCH = "${GIT_BRANCH}";
+    
+    private static String convertBuildStamp(String buildTimeStamp) {
+    	try {
+			java.util.Date fromSystem = new SimpleDateFormat("yyyyMMdd_HHmmss").parse(buildTimeStamp);
+			DateFormat toSystem = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
+			return toSystem.format(fromSystem).toString();			
+		} catch (ParseException e) {
+		}
+    	return null;
+    }
 
     /** Query text to replace with values from Jenkins environment */
     public static final String QUERY_TEXT = "SELECT '%1$s' as build_tag," +
