@@ -10,6 +10,10 @@ An extra field in the BigQuery database for the channel associated with the test
  - BigQuery: Enable BigQuery Logging and set the Project, Dataset, and Table you want Jenkins to write out to. The default Google credentials on the Jenkins server will be used to write to BigQuery.
  - Datastore: Enable Datastore Logging. The default project and Google credentials on your Jenkins box will be used to log out to the kind JenkinsBuild within Datastore. The kind cannot be changed since it is tied to the class name within the entity.
 4.	Within the Jenkins project create a Boolean parameter called BIG_QUERY. Set the default value to true for the plugin to send the data to BigQuery
+5.	Within Jenkins Under `Build Timestamp` set the following
+		Name :				BUILD_TIMESTAMP_TS
+		Pattern :			yyyy-MM-dd HH:mm:ss z
+		Shift timestamp:	+ 0 days 0 hours 0 minutes
 
 ### Table Structure for BigQuery
 
